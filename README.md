@@ -38,15 +38,23 @@ Vous pouvez jouer via le package `dist` sans compiler manuellement.
 
 ### Prerequis
 
-- Java 17+ (JRE ou JDK)
+- Java 17+ (JDK recommande pour l'interface graphique Swing)
 - MySQL optionnel
 
-#### Ubuntu / Linux
+#### Ubuntu / Debian
 
 ```bash
 sudo apt update
 sudo apt install openjdk-25-jdk
 ```
+
+#### Fedora / RHEL
+
+```bash
+sudo dnf install java-25-openjdk-devel
+```
+
+> Le package `java-25-openjdk-devel` inclut les bibliotheques natives necessaires a l'interface graphique Swing (`libawt_xawt`). Le JRE seul (`java-25-openjdk-headless`) ne permet que le mode console.
 
 #### Windows (`run.bat`)
 
@@ -75,6 +83,8 @@ chmod u+x run.sh
 :: Extraire le zip, ouvrir un terminal dans dist, puis lancer:
 run.bat
 ```
+
+> **Note Wayland (Fedora 43+, Ubuntu 24.04+):** si l'interface graphique ne se lance pas et que le jeu bascule en mode console, verifiez que le JDK complet est installe. Le JRE seul ne fournit pas les bibliotheques graphiques X11 requises par Swing.
 
 ---
 
@@ -166,6 +176,7 @@ Si tout est correct, la sortie se termine par:
 
 - Schema UML: https://dylanholin-campus.github.io/java_game_PipBoysQuest/
 - Javadoc locale: `PipBoysQuest/docs/javadoc/index.html`
+- Historique des mises a jour: [commits](https://github.com/dylanholin-campus/java_game_PipBoysQuest/commits/main)
 
 Generation Javadoc:
 
